@@ -1,5 +1,5 @@
 # 1.- Código fuente
-
+```assembly
 ; ===============================================
 ; Generar la serie de Fibonacci hasta un límite y mostrar valores.
 ; -----------------------------------------------
@@ -26,8 +26,8 @@
 
 .end:
     mvd Ra      ; Mantiene en pantalla el resultado final.
-    jmp .end    ; Se queda en un bucle infinito mostrando el valor final.
-
+    jmp .end    ; Se queda en un bucle infinito mostrando el valor final. 
+```
 
 # Explicación del Código - Serie de Fibonacci en ARM 8 bits
 
@@ -43,7 +43,7 @@
 
 El siguiente código implementa la generación de la serie de Fibonacci usando tres registros (`Rb`, `Rc`, `Rd`) y se repite hasta alcanzar el límite `Re`.
 
-```assembly
+```
 .loop:
     add Rc, Rb  ; Suma el valor de Rb a Rc, generando el siguiente número en la serie.
     jc .end     ; Si ocurre un desbordamiento (carry), salir.
@@ -56,11 +56,14 @@ El siguiente código implementa la generación de la serie de Fibonacci usando t
     mov Rb, Rd  ; Actualiza Rb con el nuevo número de Fibonacci.
     jmp .loop   ; Repite el proceso hasta alcanzar el límite.
 
+---
+
+```
 ## 3. Finalización y Mantenimiento en Pantalla
 
 Cuando la serie de Fibonacci alcanza el límite o si hay desbordamiento, el programa entra en la sección `.end`, donde se muestra el último número calculado en pantalla y se detiene en un bucle infinito.
 
-```assembly
+```
 .end:
     mvd Ra      ; Mantiene en pantalla el resultado final.
     jmp .end    ; Se queda en un bucle infinito mostrando el valor final.
